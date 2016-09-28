@@ -70,11 +70,13 @@ class BooksController < ApplicationController
   end
 
   def llenar
-    @categories = Category.create(name: "Politica general")
-    @categories = Category.create(name: "Politica Ejecutivo comercial")
-    @categories = Category.create(name: "Politica cajas")
-    @categories = Category.create(name: "Politica seguridad")
-    @categories = Category.create(name: "Politica inversion")
+      if @categories.blank?
+        @categories = Category.create(name: "Politica general")
+        @categories = Category.create(name: "Politica Ejecutivo comercial")
+        @categories = Category.create(name: "Politica cajas")
+        @categories = Category.create(name: "Politica seguridad")
+        @categories = Category.create(name: "Politica inversion")
+      end
   end
 
   def find
