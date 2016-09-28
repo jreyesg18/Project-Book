@@ -1,0 +1,27 @@
+<%= simple_form_for @book, :html =>{:multipart => true}  do |f|%>
+
+    <% if @book.errors.any? %>
+      <div id="error_explanation">
+         <h2><%= pluralize(@book.errors.count, "Error") %> Error antes de guardar: </h2>
+
+          <ul>
+            <% @book.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+            <%end%>
+
+          </ul>
+      </div>
+    <%end%>
+
+
+    <%= f.label :category_id,"Categoria" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name%>
+    <%= f.input :titulo, label:"Titulo del libro" %>
+    <%= f.file_field :book_img%>
+    <%= f.input :descripcion %>
+    <%= f.input :autor %>
+    <%= f.file_field :book_pdf %>
+
+    <%= f.button :submit, :class=>'btn-custom2'%>
+
+    <% end %>
