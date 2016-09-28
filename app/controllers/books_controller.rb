@@ -8,7 +8,6 @@ class BooksController < ApplicationController
   @categories = Category.create(name: "Politica seguridad")
   @categories = Category.create(name: "Politica inversion")
 
-
   def index
     if params[:category].blank?
       @books = Book.all.order("created_at DESC")
