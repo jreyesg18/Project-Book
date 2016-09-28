@@ -9,8 +9,6 @@
       <h2 class="book-title"><%= @book.titulo %></h2>
       <h3 class="book-author"><span>De: </span><%= @book.autor%></h3>
       <h4>categoria: <%= @book.category.name %></h4>
-      <h2 class="avg-rating">Puntuacion</h2>
-      <div class="average-review-rating" data-score=<%= @average_review %>></div>
       <p class="book-desc"><%= @book.descripcion%></p>
 
       <%=  link_to 'Documento', @book.book_pdf.url, class: "btn btn-custom" %>
@@ -44,23 +42,3 @@
   <%end%>
 
 </div>
-
-<script>
-  $('.review-rating').raty({
-    readOnly: true,
-    score: function(){
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-</script>
-
-<script>
-  $('.average-review-rating').raty({
-    readOnly: true,
-    score: function(){
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-</script>
