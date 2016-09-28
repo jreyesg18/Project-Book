@@ -1,11 +1,12 @@
 class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :llenar
+
 
   def index
 
     if params[:category].blank?
+      :llenar
       @books = Book.all.order("created_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
@@ -68,6 +69,17 @@ class BooksController < ApplicationController
   def find_book
     @book = Book.find(params[:id])
   end
-  
+
+  def llenar
+    @categories = Category.create(name: "Politica general")
+    @categories = Category.create(name: "Politica Ejecutivo comercial")
+    @categories = Category.create(name: "Politica cajas")
+    @categories = Category.create(name: "Politica seguridad")
+    @categories = Category.create(name: "Politica inversion")
+  end
+
+  def find
+
+  end
 
 end
