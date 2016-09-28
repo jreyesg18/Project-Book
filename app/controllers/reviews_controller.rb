@@ -39,7 +39,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comentario)
+    params.require(:review).permit(:comentario)
   end
 
   def find_book
