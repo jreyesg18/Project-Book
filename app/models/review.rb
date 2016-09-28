@@ -7,3 +7,5 @@ class Review < ActiveRecord::Base
   validates_inclusion_of :rating, :in => 1..7, :message => "La nota debe ser entre 1 a 7"
 
 end
+
+
