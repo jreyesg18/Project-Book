@@ -11,6 +11,7 @@
       <h4>categoria: <%= @book.category.name %></h4>
       <p class="book-desc"><%= @book.descripcion%></p>
 
+
       <%=  link_to 'Documento', @book.book_pdf.url, class: "btn btn-custom" %>
 
     </div>
@@ -42,3 +43,24 @@
   <%end%>
 
 </div>
+
+
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    score: function(){
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
