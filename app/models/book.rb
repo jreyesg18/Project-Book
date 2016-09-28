@@ -9,9 +9,9 @@ class Book < ActiveRecord::Base
   has_attached_file :book_pdf, styles: {thumbnail: "60x60#"}
   validates_attachment_content_type :book_pdf, content_type: ["application/pdf" ]
 
-  validates :titulo, length: { in: 8..1000 , message: "Debe tener entre 5 y 500 caracteres"}
+  validates :titulo, length: { in: 5..1000 , message: "Debe tener entre 5 y 500 caracteres"}
   validates :descripcion, length: { in: 0..1000 , message: "Debe tener entre 0 y 1000 caracteres"}
-  validates :autor, length: { in: 8..100 , message: "Debe tener entre 5 y 20 caracteres"}
+  validates :autor, length: { in: 5..100 , message: "Debe tener entre 5 y 20 caracteres"}
   validates :category_id, presence: true
   validates :book_img, attachment_presence: true
   validates :book_pdf, attachment_presence: true
