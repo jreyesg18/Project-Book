@@ -1,12 +1,11 @@
 class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
- 
+  before_action :llenar
 
   def index
 
     if params[:category].blank?
-      @categores= :llenar
       @books = Book.all.order("created_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
